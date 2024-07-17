@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 @Service
 public class FileUploadServiceImpl implements FileUploadService {
 
-    private final Path root = Paths.get("uploads");
+    private final Path root = Paths.get("/data/spring-boot-file-upload");
 
     public void save(MultipartFile file) {
         try {
@@ -55,7 +55,7 @@ public class FileUploadServiceImpl implements FileUploadService {
 
     public Stream<Path> getAll() {
         try {
-            return Files.walk(this.root, 1).filter(path -> !path.equals(this.root)).map(this.root::relativize);
+            return Files.walk(root, 1).filter(path -> !path.equals(root)).map(root::relativize);
         } catch (IOException e) {
             throw new RuntimeException("Could not load the files!");
         }

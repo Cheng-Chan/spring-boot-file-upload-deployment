@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    image: 'spring-boot-file-upload'
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: 'spring-boot-file-upload'
+    volumes:
+      - /home/Documents/uploads:/data/spring-boot-file-upload
+    ports:
+      - "6868:8000"
