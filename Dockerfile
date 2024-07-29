@@ -1,14 +1,7 @@
-FROM openjdk:17-alpine
-
-CMD ./gradlew clean build
-
-CMD ./gradlew build
-
-VOLUME /tmp
-
-ADD build/libs/*.jar spring-boot-file-upload.jar
-
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY . .
+RUN ./gradlew clean build
 EXPOSE 8081
-
-# Set the default command to run the Java application
+COPY build/libs/*.jar spring-boot-file-upload.jar
 ENTRYPOINT ["java", "-jar", "spring-boot-file-upload.jar"]
