@@ -9,5 +9,5 @@ RUN ./gradlew clean build
 FROM eclipse-temurin:17-jdk
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar spring-boot-file-upload.jar
-EXPOSE 8081
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "spring-boot-file-upload.jar"]

@@ -10,4 +10,4 @@ services:
     volumes:
       - /home/Documents/uploads:/data/spring-boot-file-upload
     ports:
-      - "6868:8081"
+      - "6868:8080"
